@@ -66,7 +66,112 @@ class LinkedList():
         else:
             return 'There is no elements in this linked list!'
     
-    def           
+    def insert(self, element, position):
+        current = self.head
+        step = 0
+        pos = position -1 
+        
+        if self.head:
+             while step <= position:  
+                
+                if step == pos:
+                    element.next = current.next
+                    current.next = element
+                    break
+                
+                elif current.next:
+                    current = current.next 
+                    
+                elif current.next is None:
+                    return f'the position is not found'
+                
+                step += 1
+                    
+        else:
+            return 'There is no elements in this linked list!'
+            
+                  
+    def get_length(self):
+        length = 0
+        current = self.head
+        
+        while current:
+            if current.next:
+                current = current.next
+                length += 1
+            elif current.next == None:
+                length += 1
+                return length
+            
+    # def delete(self, value):
+    #     """
+    #     Delete the first node with the given value.
+    #     """
+    #     def target_is_head_and_next(current):
+    #         if step == 0 and current.value == value and current.next:
+    #             return True
+    #         else: 
+    #             return False
+        
+    #     def target_is_head_and_no_next(current):
+    #         if step == 0 and current.value == value:
+    #             return True
+    #         else: 
+    #             return False
+        
+    #     def target_is_next(current):
+    #         if current.next and current.next.value == value:
+    #             return True
+    #         else:
+    #             return False
+        
+    #     def target_is_last_node(self, step):
+    #         len = self.get_length()
+    #         if step == len:
+    #             return True
+    #         else:
+    #             return False
+            
+            
+    #     current = self.head
+    #     step = 0
+    #     while current:
+    #         print(f'[0]passed!!!')
+    #         if target_is_head_and_next(current):
+    #             print(f'[1]passed!!!')
+                
+    #             self.head = current.next
+    #             current = None
+    #             break
+            
+    #         elif target_is_head_and_no_next(current):
+    #             print(f'[2]passed!!!')
+                
+    #             current = None
+    #             break
+            
+    #         elif target_is_next(current):
+    #             print(f'[3]passed!!!')
+    #             current.next = current.next.next
+    #             print(f'\n\ncurrent is:{current.value}')
+    #             break
+            
+    #         elif target_is_last_node:
+    #             print(f'[4]passed!!!')
+    #             current.next = None
+    #             break
+            
+    #         # if node is not target move to next node.
+    #         else:
+    #             print(f'[5]passed!!!')
+    #             current = current.next
+    #             step += 1 
+                
+                
+                
+          
+        
+        
                 
             
       
@@ -76,17 +181,36 @@ e1 = Element(1)
 e2 = Element(2)
 e3 = Element(42)
 e4 = Element(22)
+e5 = Element(33)
+e6 = Element(66)
 
 ll = LinkedList()
 
-ll.append(e1)
-ll.append(e2)
-ll.append(e3)
-ll.append(e4)
+ll.append(e1) # 0 = 1 
+ll.append(e2) # 1 = 2
+ll.append(e3) # 2 = 42
+ll.append(e4) # 3 = 22
 
-print(ll.get_position(3))
 
-            
+ll.insert(e5, 1)
+ll.insert(e6, 4)
+
+for i in range(ll.get_length()):
+    print(f'Position = {i}')
+    print(f'    Element: {ll.get_position(i)}')
+
+print(f'LinkedList Length: {ll.get_length()}')
+
+
+print('\n')
+for i in range(ll.get_length()):
+    print(f'Position = {i}')
+    print(f'    Element: {ll.get_position(i)}\n')
+
+
+
+
+
         
         
         
