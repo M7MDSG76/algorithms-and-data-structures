@@ -55,7 +55,7 @@ class LinkedList():
         if current:
             while step <= position:
                 if step == position:
-                    return current.value
+                    return current
                 elif current.next:
                     current = current.next 
                 elif current.next is None:
@@ -103,69 +103,69 @@ class LinkedList():
                 length += 1
                 return length
             
-    # def delete(self, value):
-    #     """
-    #     Delete the first node with the given value.
-    #     """
-    #     def target_is_head_and_next(current):
-    #         if step == 0 and current.value == value and current.next:
-    #             return True
-    #         else: 
-    #             return False
+    def delete(self, value):
+        """
+        Delete the first node with the given value.
+        """
+        def target_is_head_and_next(current):
+            if step == 0 and current.value == value and current.next:
+                return True
+            else: 
+                return False
         
-    #     def target_is_head_and_no_next(current):
-    #         if step == 0 and current.value == value:
-    #             return True
-    #         else: 
-    #             return False
+        def target_is_head_and_no_next(current):
+            if step == 0 and current.value == value:
+                return True
+            else: 
+                return False
         
-    #     def target_is_next(current):
-    #         if current.next and current.next.value == value:
-    #             return True
-    #         else:
-    #             return False
+        def target_is_next(current):
+            if current.next and current.next.value == value:
+                return True
+            else:
+                return False
         
-    #     def target_is_last_node(self, step):
-    #         len = self.get_length()
-    #         if step == len:
-    #             return True
-    #         else:
-    #             return False
+        def target_is_last_node(self, step, current, value):
+            len = self.get_length()
+            if step == len and current.value == value:
+                return True
+            else:
+                return False
             
             
-    #     current = self.head
-    #     step = 0
-    #     while current:
-    #         print(f'[0]passed!!!')
-    #         if target_is_head_and_next(current):
-    #             print(f'[1]passed!!!')
+        current = self.head
+        step = 0
+        while current:
+            print(f'[0]passed!!!')
+            if target_is_head_and_next(current):
+                print(f'[1]passed!!!')
                 
-    #             self.head = current.next
-    #             current = None
-    #             break
+                self.head = current.next
+                current = None
+                break
             
-    #         elif target_is_head_and_no_next(current):
-    #             print(f'[2]passed!!!')
+            elif target_is_head_and_no_next(current):
+                print(f'[2]passed!!!')
                 
-    #             current = None
-    #             break
+                self.head = None
+                break
             
-    #         elif target_is_next(current):
-    #             print(f'[3]passed!!!')
-    #             current.next = current.next.next
-    #             print(f'\n\ncurrent is:{current.value}')
-    #             break
+            elif target_is_next(current):
+                print(f'[3]passed!!!')
+                current.next = current.next.next
+                print(f'\n\ncurrent is:{current.value}')
+                break
             
-    #         elif target_is_last_node:
-    #             print(f'[4]passed!!!')
-    #             current.next = None
-    #             break
+            elif target_is_last_node(self, step, current, value):
+                print(f'[4]passed!!!')
+                current = None
+                break
             
-    #         # if node is not target move to next node.
-    #         else:
-    #             print(f'[5]passed!!!')
-    #             current = current.next
-    #             step += 1 
+            # if node is not target move to next node.
+            else:
+                print(f'[5]passed!!!')
+                current = current.next
+                step += 1 
                 
                 
                 
@@ -197,15 +197,17 @@ ll.insert(e6, 4)
 
 for i in range(ll.get_length()):
     print(f'Position = {i}')
-    print(f'    Element: {ll.get_position(i)}')
+    print(f'    Element: {ll.get_position(i).value}')
 
 print(f'LinkedList Length: {ll.get_length()}')
+
+ll.delete(33)
 
 
 print('\n')
 for i in range(ll.get_length()):
     print(f'Position = {i}')
-    print(f'    Element: {ll.get_position(i)}\n')
+    print(f'    Element: {ll.get_position(i).value}\n')
 
 
 
