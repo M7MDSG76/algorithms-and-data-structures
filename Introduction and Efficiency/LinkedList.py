@@ -50,25 +50,25 @@ class LinkedList():
     
     def get_position(self, position):
         current = self.head
-        step = 0
+        step = 1
         
         if current:
             while step <= position:
                 if step == position:
-                    return current
+                    return current.value
                 elif current.next:
                     current = current.next 
                 elif current.next is None:
-                    return f'the position is not found'
+                    return None
                 
                 step += 1
                     
         else:
-            return 'There is no elements in this linked list!'
+            return None
     
     def insert(self, element, position):
         current = self.head
-        step = 0
+        step = 1
         pos = position -1 
         
         if self.head:
@@ -171,48 +171,38 @@ class LinkedList():
                 
           
         
-        
-                
-            
-      
-      
-            
+
+# Test cases
+# Set up some Elements
 e1 = Element(1)
 e2 = Element(2)
-e3 = Element(42)
-e4 = Element(22)
-e5 = Element(33)
-e6 = Element(66)
+e3 = Element(3)
+e4 = Element(4)
 
-ll = LinkedList()
+# Start setting up a LinkedList
+ll = LinkedList(e1)
+ll.append(e2)
+ll.append(e3)
 
-ll.append(e1) # 0 = 1 
-ll.append(e2) # 1 = 2
-ll.append(e3) # 2 = 42
-ll.append(e4) # 3 = 22
+# Test get_position
+# Should print 3
+print (ll.head.next.next.value)
+# Should also print 3
+print (ll.get_position(3))
 
+# Test insert
+ll.insert(e4,3)
+# Should print 4 now
+print (ll.get_position(3))
 
-ll.insert(e5, 1)
-ll.insert(e6, 4)
-
-for i in range(ll.get_length()):
-    print(f'Position = {i}')
-    print(f'    Element: {ll.get_position(i).value}')
-
-print(f'LinkedList Length: {ll.get_length()}')
-
-ll.delete(33)
-
-
-print('\n')
-for i in range(ll.get_length()):
-    print(f'Position = {i}')
-    print(f'    Element: {ll.get_position(i).value}\n')
-
-
-
-
-
+# Test delete
+ll.delete(1)
+# Should print 2 now
+print (ll.get_position(1))
+# Should print 4 now
+print (ll.get_position(2))
+# Should print 3 now
+print (ll.get_position(3))
         
         
         
