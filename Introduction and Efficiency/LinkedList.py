@@ -2,12 +2,10 @@
 This file for LinkedList practice reasonses.
 
 ToDo list:
-    - make linked list [].
+    - make linked list [Done].
     - add functions to get position of an element, insert new element, and delete elements [].
 """
 
-
-from inspect import currentframe
 
 
 class Element():
@@ -135,6 +133,7 @@ class LinkedList():
             
         current = self.head
         step = 0
+        
         while current:
             print(f'[0]passed!!!')
             if target_is_head_and_next(current):
@@ -196,7 +195,7 @@ ll.insert(e4,3)
 print (ll.get_position(3))
 
 # Test delete
-ll.delete(1)
+ll.delete(4)
 # Should print 2 now
 print (ll.get_position(1))
 # Should print 4 now
