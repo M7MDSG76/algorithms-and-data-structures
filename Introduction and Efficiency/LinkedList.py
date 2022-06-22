@@ -25,27 +25,7 @@ class LinkedList():
             current.next = new_element
         else:
             self.head = new_element
-            
-    # def get_position(self, value):
-    #     current = self.head
-    #     if self.head:
-            
-    #         if current.value == value:
-    #             return f'current value {current.value}, value is{value}'
-            
-    #         while current.value != value:
-    #             if current.value == value:
-    #                 return f'current value {current.value}, value is{value}'
-                
-    #             elif current.next.value == value:
-    #                 return f'current value {current.value}, value is{value}'
-                
-    #             elif current.next == None:
-    #                 break
-                
-    #             else:
-    #                 current = current.next
-    
+
     def get_position(self, position):
         current = self.head
         step = 1
@@ -63,6 +43,28 @@ class LinkedList():
                     
         else:
             return None
+    
+    def get_length(self):
+        length = 0
+        current = self.head
+        
+        while current:
+            if current.next:
+                current = current.next
+                length += 1
+            elif current.next == None:
+                length += 1
+                return length
+    
+    def print_out(self):
+        if self.head:
+            current = self.head
+            print('Nodes:\n', end=' ')
+            while current:
+                print(current.value, end=', ')
+                current = current.next
+            print('\n')
+            return
     
     def insert(self, element, position):
         current = self.head
@@ -87,20 +89,7 @@ class LinkedList():
                     
         else:
             return 'There is no elements in this linked list!'
-            
-                  
-    def get_length(self):
-        length = 0
-        current = self.head
-        
-        while current:
-            if current.next:
-                current = current.next
-                length += 1
-            elif current.next == None:
-                length += 1
-                return length
-            
+                    
     def delete(self, value):
         """
         Delete the first node with the given value.
@@ -165,8 +154,17 @@ class LinkedList():
                 print(f'[5]passed!!!')
                 current = current.next
                 step += 1 
-                
-                
+              
+    def insert_first(self, new_element):
+        """
+        Insert new element to the begining of the list.  
+        """
+        current = self.head
+        if self.head:
+            new_element.next = current
+            self.head = new_element
+               
+                    
                 
           
         
@@ -202,6 +200,10 @@ print (ll.get_position(1))
 print (ll.get_position(2))
 # Should print 3 now
 print (ll.get_position(3))
+
+e5 = Element(5)
+ll.insert_first(e5)
+ll.print_out()
         
         
         
