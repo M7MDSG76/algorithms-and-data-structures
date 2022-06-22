@@ -65,6 +65,8 @@ class LinkedList():
                 current = current.next
             print('\n')
             return
+        else:
+            print('The List is empty.')
     
     def insert(self, element, position):
         current = self.head
@@ -164,7 +166,15 @@ class LinkedList():
             new_element.next = current
             self.head = new_element
                
-                    
+    def delete_first(self):
+        if self.head:
+            current = self.head
+            if current.next:
+                self.head = current.next
+                current = None
+            else:
+                self.head = None
+                current = None                  
                 
           
         
@@ -204,6 +214,16 @@ print (ll.get_position(3))
 e5 = Element(5)
 ll.insert_first(e5)
 ll.print_out()
+ll.delete_first()
+ll.print_out()
+
+
+e6 = Element(66)
+linkedlist = LinkedList(e6)
+
+linkedlist.print_out()
+linkedlist.delete_first()
+linkedlist.print_out()
         
         
         
