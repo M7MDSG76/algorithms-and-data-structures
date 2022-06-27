@@ -30,10 +30,11 @@ def binary_search_recursive_methode(arr, element, high, low):
             return binary_search_recursive_methode(arr, element, high = mid - 1, low = low)   
         
     return 'Not found'       
+
+
 arr = [1,2,3,4,5,6,7,8,9,22,423,434,554,666]
-
-
 x = 22
+
 print(binary_search_iteration_methode(arr,x))
 print( binary_search_recursive_methode(arr, x, len(arr)-1, 0))
 
